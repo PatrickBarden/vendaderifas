@@ -10,19 +10,25 @@ export async function listCampaigns(): Promise<Campaign[]> {
     return mockCampaigns;
   }
 
-  const { data, error } = await supabase
-    .from('campaigns')
-    .select(
-      'id, code, title, short_description, description, category, ticket_price, original_price, total_tickets, sold_tickets, hero_image, gallery, badge, draw_date',
-    )
-    .order('created_at', { ascending: false });
+  try {
+    const { data, error } = await supabase
+      .from('campaigns')
+      .select(
+        'id, code, title, short_description, description, category, ticket_price, original_price, total_tickets, sold_tickets, hero_image, gallery, badge, draw_date',
+      )
+      .order('created_at', { ascending: false });
 
-  if (error || !data) {
-    console.warn('Falling back to mock campaigns:', error?.message);
+    if (error || !data || data.length === 0) {
+      console.warn('Falling back to mock campaigns:', error?.message ?? 'No campaigns returned from Supabase.');
+      return mockCampaigns;
+    }
+
+    return data.map(mapCampaignRow);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown Supabase error';
+    console.warn('Falling back to mock campaigns:', message);
     return mockCampaigns;
   }
-
-  return data.map(mapCampaignRow);
 }
 
 export async function getCampaign(id?: string): Promise<Campaign> {

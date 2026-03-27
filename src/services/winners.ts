@@ -10,15 +10,21 @@ export async function listWinners(): Promise<Winner[]> {
     return mockWinners;
   }
 
-  const { data, error } = await supabase
-    .from('winners')
-    .select('id, campaign_id, campaign_title, winner_name, city, state, winning_ticket, draw_date, prize_description, image')
-    .order('draw_date', { ascending: false });
+  try {
+    const { data, error } = await supabase
+      .from('winners')
+      .select('id, campaign_id, campaign_title, winner_name, city, state, winning_ticket, draw_date, prize_description, image')
+      .order('draw_date', { ascending: false });
 
-  if (error || !data) {
-    console.warn('Falling back to mock winners:', error?.message);
+    if (error || !data || data.length === 0) {
+      console.warn('Falling back to mock winners:', error?.message ?? 'No winners returned from Supabase.');
+      return mockWinners;
+    }
+
+    return data.map(mapWinnerRow);
+  } catch (error) {
+    const message = error instanceof Error ? error.message : 'Unknown Supabase error';
+    console.warn('Falling back to mock winners:', message);
     return mockWinners;
   }
-
-  return data.map(mapWinnerRow);
 }

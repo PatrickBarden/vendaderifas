@@ -17,10 +17,10 @@ export function WinnersPage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="flex flex-col items-center text-center">
           <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase relative inline-block mb-4">
-            Últimos Ganhadores
+            ULTIMOS GANHADORES
             <span className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-24 h-1 bg-[#FF4D3A]" />
           </h1>
-          <p className="text-zinc-400 mt-8 max-w-2xl text-lg">Seção preparada para ler vencedores reais do banco assim que o Supabase estiver conectado.</p>
+          <p className="text-zinc-400 mt-8 max-w-2xl text-lg">Veja quem ja foi contemplado, conheca os premios entregues e inspire-se para ser o proximo ganhador.</p>
         </div>
       </section>
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

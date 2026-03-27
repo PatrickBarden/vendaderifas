@@ -19,16 +19,19 @@ export function PublicLayout() {
 
             <div className="flex-1 md:flex-none flex justify-center md:justify-start">
               <Link to="/" className="flex items-center space-x-2">
-                <span className="text-xl font-black italic tracking-tight text-white">
-                  BRUNO <span className="text-red-500">PICKUPS</span>
-                </span>
+                <img 
+                  src="/images/logo.png" 
+                  alt="Bruno Pickups Premios" 
+                  className="h-12 w-auto"
+                />
               </Link>
             </div>
 
-            <nav className="hidden md:flex space-x-8 h-full items-center flex-1 justify-center">
-              <NavLink to="/" currentPath={location.pathname} label="Início" />
+            <nav className="hidden md:flex space-x-8 h-full items-center justify-end flex-1">
+              <NavLink to="/" currentPath={location.pathname} label="Inicio" />
               <NavLink to="/campaigns" currentPath={location.pathname} label="Campanhas" />
               <NavLink to="/winners" currentPath={location.pathname} label="Ganhadores" />
+              <NavLink to="/sobre" currentPath={location.pathname} label="Sobre" />
             </nav>
 
             <div className="flex items-center flex-1 justify-end space-x-6">
@@ -48,9 +51,10 @@ export function PublicLayout() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-zinc-900 border-b border-zinc-800 absolute w-full">
             <div className="px-4 pt-2 pb-6 space-y-1">
-              <MobileLink to="/" onNavigate={() => setIsMobileMenuOpen(false)} label="Início" />
+              <MobileLink to="/" onNavigate={() => setIsMobileMenuOpen(false)} label="Inicio" />
               <MobileLink to="/campaigns" onNavigate={() => setIsMobileMenuOpen(false)} label="Campanhas" />
               <MobileLink to="/winners" onNavigate={() => setIsMobileMenuOpen(false)} label="Ganhadores" />
+              <MobileLink to="/sobre" onNavigate={() => setIsMobileMenuOpen(false)} label="Sobre" />
               <MobileLink to="/dashboard" onNavigate={() => setIsMobileMenuOpen(false)} label="Meus Bilhetes" />
               <MobileLink to="/login" onNavigate={() => setIsMobileMenuOpen(false)} label="Login" />
             </div>
@@ -66,33 +70,33 @@ export function PublicLayout() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div>
-              <span className="text-xl font-black italic tracking-tight text-white mb-4 block">
-                BRUNO <span className="text-[#FF4D3A]">PICKUPS</span>
-                <br />
-                PRÊMIOS
-              </span>
+              <img 
+                src="/images/logo.png" 
+                alt="Bruno Pickups Premios" 
+                className="h-10 w-auto mb-4"
+              />
               <p className="text-xs text-zinc-400 leading-relaxed mt-4">
-                Plataforma de sorteios automotivos com foco em campanhas de alta conversão, transparência e entrega nacional.
+                Plataforma de rifas de carros com campanhas envolventes, sorteios transparentes e premios que aceleram sonhos.
               </p>
             </div>
-            <FooterNav title="Navegação" items={[['Como Funciona', '/#como-funciona'], ['Campanhas', '/campaigns'], ['Ganhadores', '/winners']]} />
+            <FooterNav title="Navegacao" items={[['Como Funciona', '/#como-funciona'], ['Campanhas', '/campaigns'], ['Ganhadores', '/winners']]} />
             <FooterNav title="Suporte" items={[['Contato', '#'], ['Termos de Uso', '#'], ['Privacidade', '#']]} />
             <div>
               <h4 className="text-white font-bold mb-6 text-sm tracking-wider uppercase">Conformidade</h4>
               <div className="mt-6 flex items-center space-x-2 text-[10px] font-bold text-zinc-500 bg-zinc-900/50 p-2 rounded-lg border border-zinc-800 w-max">
                 <ShieldCheckIcon className="w-4 h-4 text-yellow-500" />
-                <span className="uppercase">Operação rastreável e pronta para auditoria</span>
+                <span className="uppercase">Operacao rastreavel e sorteios com transparencia</span>
               </div>
             </div>
           </div>
           <div className="pt-8 border-t border-zinc-900 text-[10px] font-bold uppercase tracking-widest text-zinc-600 flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; 2026 Bruno Pickups Prêmios. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Bruno Pickups. Todos os direitos reservados.</p>
           </div>
         </div>
       </footer>
 
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-zinc-900 border-t border-zinc-800 flex justify-around items-center h-16 px-2 z-50 pb-safe">
-        <BottomLink to="/" active={location.pathname === '/'} icon={<Home className="w-5 h-5 mb-1" />} label="Início" />
+        <BottomLink to="/" active={location.pathname === '/'} icon={<Home className="w-5 h-5 mb-1" />} label="Inicio" />
         <BottomLink to="/campaigns" active={location.pathname === '/campaigns'} icon={<Search className="w-5 h-5 mb-1" />} label="Campanhas" />
         <BottomLink to="/dashboard" active={location.pathname === '/dashboard'} icon={<Ticket className="w-5 h-5 mb-1" />} label="Bilhetes" />
         <BottomLink to="/login" active={location.pathname === '/login'} icon={<User className="w-5 h-5 mb-1" />} label="Perfil" />

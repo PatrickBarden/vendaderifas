@@ -3,11 +3,13 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useCampaign } from '@/hooks/useCampaign';
 import { formatCurrency } from '@/lib/formatters';
+import { PurchaseModal } from '../components/PurchaseModal';
 
 export function CampaignDetailsPage() {
   const { id } = useParams();
   const { campaign, loading } = useCampaign(id);
   const [selectedQuantity, setSelectedQuantity] = useState<number>(100);
+  const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false);
 
   if (loading || !campaign) {
     return (
@@ -27,7 +29,7 @@ export function CampaignDetailsPage() {
                 <img src={campaign.heroImage} alt={campaign.title} className="w-full h-full object-cover" />
                 <div className="absolute top-6 left-6 bg-yellow-500 text-black text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider flex items-center shadow-lg">
                   <Star className="w-3.5 h-3.5 mr-1.5 fill-black" />
-                  Edição Limitada
+                  Edicao Limitada
                 </div>
               </div>
               <div className="grid grid-cols-4 gap-4 p-4 bg-[#121214]">
@@ -44,14 +46,14 @@ export function CampaignDetailsPage() {
                 <div className="w-10 h-10 rounded-xl bg-[#FF4D3A]/10 flex items-center justify-center mr-4">
                   <Ticket className="w-5 h-5 text-[#FF4D3A]" />
                 </div>
-                <h2 className="text-2xl font-black tracking-tight text-white">Detalhes do Prêmio</h2>
+                <h2 className="text-2xl font-black tracking-tight text-white">Detalhes da Rifa</h2>
               </div>
               <p className="text-zinc-400 leading-relaxed mb-8">{campaign.description}</p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                <Bullet text="Estrutura pronta para dados reais" />
-                <Bullet text="Modelagem compatível com Supabase" />
-                <Bullet text="Rotas dinâmicas por campanha" />
-                <Bullet text="Separação de UI e dados" />
+                <Bullet text="Carro em destaque com fotos e informacoes completas" />
+                <Bullet text="Compra de cotas em poucos cliques" />
+                <Bullet text="Campanha exclusiva com quantidade limitada" />
+                <Bullet text="Sorteio pensado para quem quer realizar o sonho do carro proprio" />
               </div>
             </div>
           </div>
@@ -61,7 +63,7 @@ export function CampaignDetailsPage() {
               <div className="bg-[#1C1C1F] rounded-[2rem] p-8 border border-zinc-800/50">
                 <div className="mb-8">
                   <h1 className="text-3xl font-black tracking-tighter text-white mb-2 leading-tight uppercase">{campaign.title}</h1>
-                  <p className="text-zinc-500 text-sm">Código da campanha: {campaign.code}</p>
+                  <p className="text-zinc-500 text-sm">Codigo da campanha: {campaign.code}</p>
                 </div>
                 <div className="mb-8">
                   <p className="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Por apenas</p>
@@ -97,15 +99,31 @@ export function CampaignDetailsPage() {
                     </button>
                   </div>
                 </div>
-                <button className="w-full bg-[#FF4D3A] text-white py-5 rounded-2xl font-black text-lg uppercase tracking-wider hover:bg-[#FF3A24] transition-colors flex items-center justify-center shadow-lg shadow-red-500/20 mb-6">
+                <button 
+                  onClick={() => setIsPurchaseModalOpen(true)}
+                  className="w-full bg-[#FF4D3A] text-white py-5 rounded-2xl font-black text-lg uppercase tracking-wider hover:bg-[#FF3A24] transition-colors flex items-center justify-center shadow-lg shadow-red-500/20 mb-6"
+                >
                   COMPRAR AGORA <Rocket className="w-5 h-5 ml-2" />
                 </button>
+
+                <PurchaseModal
+                  isOpen={isPurchaseModalOpen}
+                  onClose={() => setIsPurchaseModalOpen(false)}
+                  campaign={{
+                    id: campaign.id,
+                    title: campaign.title,
+                    code: campaign.code,
+                    ticketPrice: campaign.ticketPrice,
+                    heroImage: campaign.heroImage
+                  }}
+                  selectedQuantity={selectedQuantity}
+                />
                 <div className="flex items-center justify-center gap-6 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">
                   <div className="flex items-center">
-                    <Shield className="w-3 h-3 mr-1.5" /> Pagamento Seguro
+                    <Shield className="w-3 h-3 mr-1.5" /> Compra Segura
                   </div>
                   <div className="flex items-center">
-                    <CheckCircle className="w-3 h-3 mr-1.5" /> Sorteio Auditado
+                    <CheckCircle className="w-3 h-3 mr-1.5" /> Sorteio Transparente
                   </div>
                 </div>
               </div>

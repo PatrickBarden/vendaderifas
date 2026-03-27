@@ -1,9 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Google AI Studio App</title>
+    <title>Bruno Pickups Premios</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favcon.png" />
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/favcon.png" />
+    <link rel="shortcut icon" type="image/png" href="/images/favcon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favcon.png" />
+    <style>
+      /* Force dark mode on input autofill */
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 1000px #18181b inset !important;
+        -webkit-text-fill-color: white !important;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+      input:-webkit-autofill::first-line {
+        color: white !important;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

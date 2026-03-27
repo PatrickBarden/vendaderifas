@@ -16,7 +16,7 @@ export function CampaignsPage() {
       <section className="pt-12 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-10">
           <div>
-            <p className="text-[#FF4D3A] text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Oportunidades Únicas</p>
+            <p className="text-[#FF4D3A] text-[10px] font-bold uppercase tracking-[0.2em] mb-2">Rifas de carros em destaque</p>
             <h1 className="text-4xl md:text-5xl font-black tracking-tighter text-white">
               Campanhas<span className="text-[#FF4D3A]">Ativas</span>
             </h1>
@@ -55,17 +55,17 @@ export function CampaignsPage() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-[#FF4D3A]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none" />
           <div className="flex-1 relative z-10 w-full">
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white mb-6 leading-[1.1]">
-              Estrutura pronta
+              A melhor chance
               <br />
-              para <span className="text-[#FF4D3A]">crescer</span>
+              para <span className="text-[#FF4D3A]">dirigir melhor</span>
             </h2>
-            <p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-10 max-w-md">As campanhas agora vivem em uma camada de dados central, facilitando trocar mocks por Supabase.</p>
+            <p className="text-zinc-400 text-sm md:text-base leading-relaxed mb-10 max-w-md">Cada campanha traz um veiculo em destaque, valor acessivel por cota e uma experiencia pensada para quem sonha alto.</p>
           </div>
           <div className="flex-1 w-full space-y-4 relative z-10">
-            <HowCard icon={<Target className="w-5 h-5 text-[#FF4D3A]" />} title="Dados centralizados" description="Modelos e mocks separados da UI." />
-            <HowCard icon={<Ticket className="w-5 h-5 text-[#FF4D3A]" />} title="Rotas organizadas" description="Páginas agrupadas por contexto de negócio." />
-            <HowCard icon={<PartyPopper className="w-5 h-5 text-[#FF4D3A]" />} title="Pronta para backend" description="Cliente Supabase já preparado para conexão." />
-            <HowCard icon={<Star className="w-5 h-5 text-[#FF4D3A]" />} title="Base escalável" description="Estrutura adequada para autenticação e painéis reais." />
+            <HowCard icon={<Target className="w-5 h-5 text-[#FF4D3A]" />} title="Premios desejados" description="Campanhas focadas em carros que chamam atencao e despertam desejo." />
+            <HowCard icon={<Ticket className="w-5 h-5 text-[#FF4D3A]" />} title="Cotas acessiveis" description="Valores pensados para facilitar sua entrada em cada sorteio." />
+            <HowCard icon={<PartyPopper className="w-5 h-5 text-[#FF4D3A]" />} title="Sorteios emocionantes" description="Cada campanha e uma nova chance de virar a chave da sua vida." />
+            <HowCard icon={<Star className="w-5 h-5 text-[#FF4D3A]" />} title="Experiencia confiavel" description="Acompanhe as campanhas, escolha suas cotas e participe com tranquilidade." />
           </div>
         </div>
       </section>

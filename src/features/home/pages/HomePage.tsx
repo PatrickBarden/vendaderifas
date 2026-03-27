@@ -7,8 +7,12 @@ export function HomePage() {
   const { campaigns, loading } = useCampaigns();
   const featuredCampaigns = campaigns.slice(0, 3);
 
-  if (loading || featuredCampaigns.length === 0) {
+  if (loading) {
     return <PageState label="Carregando campanhas..." />;
+  }
+
+  if (featuredCampaigns.length === 0) {
+    return <PageState label="Nenhuma campanha disponivel no momento." />;
   }
 
   return (
@@ -22,7 +26,7 @@ export function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8">
           <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-zinc-900/80 border border-red-500/30 text-red-500 text-[10px] font-bold uppercase tracking-widest mb-6 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-red-500 mr-2" />
-            Projeto organizado para crescer
+            Rifas oficiais de veiculos
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white mb-6 leading-[0.9] max-w-3xl">
             SUA
@@ -30,12 +34,12 @@ export function HomePage() {
             CHANCE DE
             <br />
             <span className="text-[#FF4D3A] italic">CONQUISTAR</span>
-            <br />A PICKUP
+            <br />O CARRO
             <br />
             DOS SONHOS.
           </h1>
           <p className="text-lg md:text-xl text-zinc-400 max-w-md mb-10 leading-relaxed font-medium">
-            Camadas de layout, rotas, domínio e integração já separadas para facilitar evolução com Supabase.
+            Escolha sua rifa, garanta suas cotas e participe da disputa por carros incriveis com sorteios transparentes.
           </p>
           <Link to="/campaigns" className="inline-flex px-8 py-4 bg-[#FF4D3A] text-white rounded-full font-bold hover:bg-[#FF3A24] transition-colors items-center shadow-lg shadow-red-500/20">
             QUERO PARTICIPAR AGORA <ArrowRight className="w-5 h-5 ml-2" />
@@ -81,18 +85,18 @@ export function HomePage() {
       <section id="como-funciona" className="py-20 px-4 md:px-8 max-w-7xl mx-auto bg-[#1C1C1F] my-12">
         <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-white uppercase text-center mb-16">COMO FUNCIONA</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-          <FeatureStep icon={<CarFront className="w-8 h-8 text-[#FF4D3A]" />} title="Escolha a Campanha" description="Selecione o veículo ou prêmio que deseja concorrer." />
-          <FeatureStep icon={<Ticket className="w-8 h-8 text-[#FF4D3A]" />} title="Compre Seus Bilhetes" description="Quanto mais cotas, maior sua chance de ganhar." />
-          <FeatureStep icon={<Award className="w-8 h-8 text-[#FF4D3A]" />} title="Aguarde o Sorteio" description="Baseado na Loteria Federal, com processo auditável." />
+          <FeatureStep icon={<CarFront className="w-8 h-8 text-[#FF4D3A]" />} title="Escolha seu carro" description="Veja os detalhes do premio e selecione a rifa que mais combina com voce." />
+          <FeatureStep icon={<Ticket className="w-8 h-8 text-[#FF4D3A]" />} title="Garanta suas cotas" description="Compre quantas cotas quiser para aumentar suas chances no sorteio." />
+          <FeatureStep icon={<Award className="w-8 h-8 text-[#FF4D3A]" />} title="Acompanhe o resultado" description="Confira os sorteios e torca para levar o carro dos sonhos para casa." />
         </div>
       </section>
 
       <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto mb-20">
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           <div className="flex-1 w-full">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase mb-2 leading-none">ÚLTIMOS</h2>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-white uppercase mb-2 leading-none">ULTIMOS</h2>
             <h2 className="text-4xl md:text-5xl font-black tracking-tighter text-[#FF4D3A] uppercase mb-6 leading-none">GANHADORES</h2>
-            <p className="text-zinc-400 text-base mb-10 max-w-md leading-relaxed">A página já está pronta para consumir dados reais assim que o backend entrar.</p>
+            <p className="text-zinc-400 text-base mb-10 max-w-md leading-relaxed">Conheca quem ja realizou o sonho do carro proprio participando das nossas rifas.</p>
             <Link to="/winners" className="inline-flex items-center text-sm font-bold text-white hover:text-[#FF4D3A] transition-colors">
               Ver galeria completa de ganhadores <ChevronRight className="w-4 h-4 ml-1" />
             </Link>
