@@ -1,0 +1,40 @@
+import type { Winner } from '@/types/domain';
+
+export const winners: Winner[] = [
+  {
+    id: 'w1',
+    campaignId: '1',
+    campaignTitle: 'RAM 2500 Laramie',
+    winnerName: 'Ricardo Silva',
+    city: 'São Paulo',
+    state: 'SP',
+    winningTicket: '123456',
+    drawDate: '2026-03-15',
+    prizeDescription: 'RAM 2500 Laramie',
+    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&q=80',
+  },
+  {
+    id: 'w2',
+    campaignId: '2',
+    campaignTitle: 'Toyota Hilux GR-S',
+    winnerName: 'Marcos Antônio',
+    city: 'Goiânia',
+    state: 'GO',
+    winningTicket: '987654',
+    drawDate: '2026-02-28',
+    prizeDescription: 'Toyota Hilux GR-S',
+    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80',
+  },
+  {
+    id: 'w3',
+    campaignId: '3',
+    campaignTitle: 'R$ 100.000,00 no PIX',
+    winnerName: 'Amanda Costa',
+    city: 'Belo Horizonte',
+    state: 'MG',
+    winningTicket: '456123',
+    drawDate: '2026-02-10',
+    prizeDescription: 'R$ 100.000,00 no PIX',
+    image: 'https://images.unsplash.com/photo-1622185135505-2d795003994a?auto=format&fit=crop&q=80',
+  },
+];
